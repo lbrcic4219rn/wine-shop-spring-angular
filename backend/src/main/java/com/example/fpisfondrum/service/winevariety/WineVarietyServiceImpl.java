@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class WineVarietyServiceImpl implements WineVarietyService{
+public class WineVarietyServiceImpl implements WineVarietyService {
     private final WineVarietyRepo wineVarietyRepo;
 
     @Override

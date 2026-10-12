@@ -5,7 +5,8 @@ import com.example.fpisfondrum.model.WineVariety;
 import java.util.List;
 
 public interface WineVarietyService {
-     List<WineVariety> findAll();
-     WineVariety save(WineVariety wineVariety);
+    List<WineVariety> findAll();
+
+    WineVariety save(WineVariety wineVariety);
 }
 

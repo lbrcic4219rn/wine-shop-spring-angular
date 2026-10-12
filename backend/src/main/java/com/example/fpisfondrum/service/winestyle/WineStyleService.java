@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface WineStyleService {
     List<WineStyle> findAll();
+
     WineStyle save(WineStyle wineStyle);
 }

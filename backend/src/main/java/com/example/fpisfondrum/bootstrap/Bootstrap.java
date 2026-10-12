@@ -60,14 +60,14 @@ public class Bootstrap implements CommandLineRunner {
             int random1 = new Random().nextInt(1, 5);
             int random2 = new Random().nextInt(1, 5);
             wineService.save(new Wine(String.format("Wine %d", globalCounter.getAndIncrement()), wineStyle, wineVariety, "wine" + random1 + ".jpg", random1 * 100));
-            wineService.save(new Wine(String.format("Wine %d", globalCounter.getAndIncrement()), wineStyle, wineVariety,  "wine" + random2 + ".jpg", random2 * 100));
+            wineService.save(new Wine(String.format("Wine %d", globalCounter.getAndIncrement()), wineStyle, wineVariety, "wine" + random2 + ".jpg", random2 * 100));
         }));
         List<Wine> wines = wineService.findAll();
         orderService.save(
                 List.of(
-                    new OrderRequest(wines.get(0).getId(), 1),
-                    new OrderRequest(wines.get(1).getId(), 2),
-                    new OrderRequest(wines.get(2).getId(), 3)
+                        new OrderRequest(wines.get(0).getId(), 1),
+                        new OrderRequest(wines.get(1).getId(), 2),
+                        new OrderRequest(wines.get(2).getId(), 3)
                 )
         );
     }

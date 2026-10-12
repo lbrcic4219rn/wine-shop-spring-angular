@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class WineServiceImpl implements WineService{
+public class WineServiceImpl implements WineService {
 
     private final WineRepo wineRepo;
 
