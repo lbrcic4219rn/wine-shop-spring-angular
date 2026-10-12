@@ -2,12 +2,12 @@
 
 A small wine shop: browse wines, filter them by style and variety, and place an order.
 
-- `backend/` — Spring Boot 3.4 REST API (Java 17, JPA, PostgreSQL)
-- `frontend/` — Angular 19 single-page app (Angular Material)
+- `backend/` — Spring Boot 3.4 REST API (Java 21, JPA, PostgreSQL)
+- `frontend/` — Angular 21 single-page app (Angular Material)
 
 ## Running locally
 
-Requirements: JDK 17+, Node 22+, Docker.
+Requirements: JDK 21+, Node 22+, Docker.
 
 1. Start the database (published on host port 5434):
 
