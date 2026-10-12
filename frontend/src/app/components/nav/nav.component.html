@@ -1,0 +1,11 @@
+<mat-toolbar class="nav">
+  <a class="brand" routerLink="/">Fondrum</a>
+  <span class="spacer"></span>
+  <a [routerLinkActiveOptions]="{exact: true}" mat-button routerLink="/" routerLinkActive="active">Wines</a>
+  <a mat-button routerLink="/order" routerLinkActive="active">
+    <mat-icon [matBadgeHidden]="cart.count() === 0" [matBadge]="cart.count()" aria-hidden="false"
+              matBadgeSize="small">shopping_cart
+    </mat-icon>
+    Order
+  </a>
+</mat-toolbar>

@@ -4,7 +4,24 @@ html, body {
   height: 100%;
 }
 
+html {
+  color-scheme: light;
+}
+
 body {
   margin: 0;
+  background: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.page {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 24px 16px;
+}
+
+.page.narrow {
+  max-width: 760px;
 }

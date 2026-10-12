@@ -2,9 +2,13 @@ package com.example.fpisfondrum.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "wine")
@@ -23,7 +27,10 @@ public class Wine {
     @NotEmpty
     private String imageLocation;
 
-    private Integer price;
+    @NotNull
+    @PositiveOrZero
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "wine_style_id")
@@ -33,7 +40,7 @@ public class Wine {
     @JoinColumn(name = "wine_variety_id")
     private WineVariety variety;
 
-    public Wine(String name, WineStyle style, WineVariety variety, String imageLocation, Integer price) {
+    public Wine(String name, WineStyle style, WineVariety variety, String imageLocation, BigDecimal price) {
         this.imageLocation = imageLocation;
         this.price = price;
         this.name = name;

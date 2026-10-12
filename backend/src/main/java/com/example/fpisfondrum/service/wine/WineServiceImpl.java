@@ -1,9 +1,12 @@
 package com.example.fpisfondrum.service.wine;
 
+import com.example.fpisfondrum.exception.NotFoundException;
 import com.example.fpisfondrum.model.Wine;
 import com.example.fpisfondrum.repo.WineRepo;
 import com.example.fpisfondrum.repo.specification.WineSpecification;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +25,7 @@ public class WineServiceImpl implements WineService {
 
     @Override
     public Wine findById(Long id) {
-        return wineRepo.findById(id).orElseThrow(() -> new RuntimeException("Wine not found with id: " + id));
+        return wineRepo.findById(id).orElseThrow(() -> new NotFoundException("Wine not found with id: " + id));
     }
 
     @Override
@@ -32,7 +35,7 @@ public class WineServiceImpl implements WineService {
 
 
     @Override
-    public List<Wine> searchWines(List<Long> wineVarietyIds, List<Long> wineStyleIds) {
+    public Page<Wine> searchWines(List<Long> wineVarietyIds, List<Long> wineStyleIds, Pageable pageable) {
 
         Specification<Wine> spec = Specification.where(null);
 
@@ -44,6 +47,6 @@ public class WineServiceImpl implements WineService {
             spec = spec.and(WineSpecification.hasStyleIn(wineStyleIds));
         }
 
-        return wineRepo.findAll(spec);
+        return wineRepo.findAll(spec, pageable);
     }
 }

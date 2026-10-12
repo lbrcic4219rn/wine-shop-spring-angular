@@ -1,0 +1,83 @@
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.line {
+  align-items: center;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.thumb {
+  border-radius: 8px;
+  height: 64px;
+  object-fit: cover;
+  width: 64px;
+}
+
+.line-info {
+  display: flex;
+  flex: 1 1 160px;
+  flex-direction: column;
+}
+
+.muted {
+  color: var(--mat-sys-on-surface-variant);
+  font-size: 13px;
+}
+
+.quantity {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+}
+
+.line-total {
+  font-variant-numeric: tabular-nums;
+  min-width: 110px;
+  text-align: right;
+}
+
+.total {
+  font-size: 18px;
+  text-align: right;
+}
+
+.customer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.customer button {
+  align-self: flex-end;
+}
+
+.error {
+  color: var(--mat-sys-error);
+  margin: 0 0 8px;
+}
+
+.confirmation {
+  display: block;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.confirmation-icon {
+  color: var(--mat-sys-primary);
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+}
+
+.summary {
+  list-style: none;
+  padding: 0;
+}

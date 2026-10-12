@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "wine_order_wines")
 @Getter
@@ -26,10 +28,15 @@ public class OrderWine {
 
     private int quantity;
 
+    // Price at the time of purchase, so later price changes do not alter past orders
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal unitPrice;
+
     public OrderWine(Order order, Wine wine, int quantity) {
         this.order = order;
         this.wine = wine;
         this.quantity = quantity;
+        this.unitPrice = wine.getPrice();
         this.id = new OrderWineId(order.getId(), wine.getId());
     }
 }

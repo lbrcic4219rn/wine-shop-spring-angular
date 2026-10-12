@@ -1,13 +1,14 @@
 import {Routes} from '@angular/router';
-import {HomeComponent} from './pages/home/home.component';
-import {OrderPageComponent} from './pages/order-page/order-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   }, {
     path: 'order',
-    component: OrderPageComponent
+    loadComponent: () => import('./pages/order-page/order-page.component').then(m => m.OrderPageComponent)
+  }, {
+    path: '**',
+    redirectTo: ''
   }
 ];

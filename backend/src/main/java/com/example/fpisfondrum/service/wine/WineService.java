@@ -1,6 +1,8 @@
 package com.example.fpisfondrum.service.wine;
 
 import com.example.fpisfondrum.model.Wine;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -11,6 +13,6 @@ public interface WineService {
 
     void save(Wine wine);
 
-    List<Wine> searchWines(List<Long> wineVarietyIds, List<Long> wineStyleIds);
+    Page<Wine> searchWines(List<Long> wineVarietyIds, List<Long> wineStyleIds, Pageable pageable);
 
 }

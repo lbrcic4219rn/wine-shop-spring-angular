@@ -1,0 +1,21 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.active {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}

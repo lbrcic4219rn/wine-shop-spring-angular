@@ -1,9 +1,14 @@
 package com.example.fpisfondrum.service.order;
 
+import com.example.fpisfondrum.model.Order;
 import com.example.fpisfondrum.request.OrderRequest;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface OrderService {
-    void save(List<OrderRequest> order);
+    Order save(OrderRequest request);
+
+    Order findById(Long id);
+
+    Page<Order> findAll(Pageable pageable);
 }

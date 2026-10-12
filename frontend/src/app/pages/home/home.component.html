@@ -1,0 +1,60 @@
+<main class="page">
+  <section aria-label="Filters" class="filters">
+    <div class="filter">
+      <h2>Style</h2>
+      <mat-chip-listbox (change)="onStylesChange($event)" aria-label="Wine style" multiple>
+        @for (style of styles(); track style.id) {
+        <mat-chip-option [value]="style.id">{{ style.name }}</mat-chip-option>
+        }
+      </mat-chip-listbox>
+    </div>
+    <div class="filter">
+      <h2>Variety</h2>
+      <mat-chip-listbox (change)="onVarietiesChange($event)" aria-label="Wine variety" multiple>
+        @for (variety of varieties(); track variety.id) {
+        <mat-chip-option [value]="variety.id">{{ variety.name }}</mat-chip-option>
+        }
+      </mat-chip-listbox>
+    </div>
+  </section>
+
+  <div class="progress">
+    @if (loading()) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+  </div>
+
+  @if (error()) {
+  <p class="message" role="alert">
+    Could not load wines. Check that the backend is running.
+    <button (click)="search()" mat-button>Retry</button>
+  </p>
+  } @else if (!loading() && wines().length === 0) {
+  <p class="message">No wines match the selected filters.</p>
+  }
+
+  <section class="grid">
+    @for (wine of wines(); track wine.id) {
+    <mat-card appearance="outlined" class="wine">
+      <img [alt]="wine.name" [src]="wineService.imageUrl(wine)" class="wine-image" loading="lazy">
+      <mat-card-header>
+        <mat-card-title>{{ wine.name }}</mat-card-title>
+        <mat-card-subtitle>{{ wine.style.name }} · {{ wine.variety.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="price">{{ wine.price | currency:'RSD':'RSD ':'1.2-2' }}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button (click)="addToOrder(wine)" mat-flat-button>
+          <mat-icon>add_shopping_cart</mat-icon>
+          Add to order
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </section>
+
+  <mat-paginator (page)="onPage($event)" [length]="totalElements()" [pageIndex]="pageIndex()"
+                 [pageSizeOptions]="[12, 24, 48]" [pageSize]="pageSize()" aria-label="Wine pages">
+  </mat-paginator>
+</main>

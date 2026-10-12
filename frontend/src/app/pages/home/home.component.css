@@ -1,0 +1,50 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+}
+
+.filter h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.progress {
+  height: 4px;
+  margin: 16px 0;
+}
+
+.message {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.wine {
+  overflow: hidden;
+}
+
+.wine-image {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 12px 0 0;
+}
+
+mat-paginator {
+  background: transparent;
+  margin-top: 16px;
+}

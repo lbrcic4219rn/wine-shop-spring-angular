@@ -1,6 +1,6 @@
 package com.example.fpisfondrum.controller;
 
-import com.example.fpisfondrum.model.WineVariety;
+import com.example.fpisfondrum.response.WineVarietyResponse;
 import com.example.fpisfondrum.service.winevariety.WineVarietyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ public class WineVarietyController {
     private final WineVarietyService wineVarietyService;
 
     @GetMapping
-    public List<WineVariety> getAll() {
-        return wineVarietyService.findAll();
+    public List<WineVarietyResponse> getAll() {
+        return wineVarietyService.findAll().stream().map(WineVarietyResponse::from).toList();
     }
 }
